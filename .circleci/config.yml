@@ -18,9 +18,9 @@ jobs:
       - image: circleci/node:10-browsers
     steps:
       - add_ssh_keys:
-          << *ssh_fingerprint
+          << *ssh_fingerprint >>
       - checkout
-      - <<: *checkout_submod
+      - <<: *checkout_submod >>
       - run:
           name: Code Has Arrived
           command: |
