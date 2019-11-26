@@ -1,5 +1,10 @@
 version: 2.1
 
+ssh_fingerprint: &ssh_fingerprint
+  fingerprints:
+    - "19:5c:fc:46:b0:c0:d0:2f:31:1c:15:a2:6d:64:b1:b9"
+    - "63:90:21:34:96:0b:3f:1e:9a:fb:04:32:5d:6e:f9:ad"
+
 checkout_submod: &checkout_submod
   run:
     command: |
@@ -12,13 +17,10 @@ jobs:
     docker:
       - image: circleci/node:10-browsers
     steps:
+      - add_ssh_keys:
+          << *ssh_fingerprint
       - checkout
       - <<: *checkout_submod
-      - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
       - run:
           name: Code Has Arrived
           command: |
