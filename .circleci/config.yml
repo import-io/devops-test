@@ -13,6 +13,7 @@ jobs:
       - image: circleci/node:10-browsers
     steps:
       - checkout
+      - <<: *checkout_submod
       - run:
           name: The First Step
           command: |
