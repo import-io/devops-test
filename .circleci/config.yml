@@ -7,6 +7,7 @@ ssh_fingerprint: &ssh_fingerprint
 
 checkout_submod: &checkout_submod
   run:
+    name: Check out submodule
     command: |
       cd infra
       git submodule update --init --recursive
