@@ -37,8 +37,8 @@ jobs:
           name: Code Has Arrived
           command: |
             ls -al infra/*
-            aws s3 cp s3://s3-storage-analysis-temporary/devops-test/test.csv .
-            aws s3 cp test.csv s3://s3-storage-analysis-temporary/devops-test/test2.csv
+            aws s3 cp s3://import-io-devops/source.csv .
+            aws s3 cp source.csv s3://s3-storage-analysis-temporary/devops-test/dest.csv
       - run:
           name: Running in a Unique Container
           command: |
